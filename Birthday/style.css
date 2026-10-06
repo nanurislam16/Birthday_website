@@ -1,0 +1,1374 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background:
+        radial-gradient(circle at 50% 30%, #24133d 0%, transparent 35%),
+        linear-gradient(
+            180deg,
+            #030817 0%,
+            #07132f 35%,
+            #1c183b 60%,
+            #08091b 100%
+        );
+
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* =========================
+   SKY
+========================= */
+
+.sky {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+
+    background:
+        radial-gradient(
+            ellipse at center bottom,
+            rgba(255, 116, 167, .22),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 50% 70%,
+            rgba(255, 153, 78, .18),
+            transparent 25%
+        );
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+
+    background-image:
+        radial-gradient(circle, #fff 1px, transparent 1px),
+        radial-gradient(circle, #ffb2d9 1px, transparent 1px),
+        radial-gradient(circle, #ffd9aa 1px, transparent 1px);
+
+    background-size:
+        90px 90px,
+        150px 150px,
+        210px 210px;
+
+    background-position:
+        10px 20px,
+        40px 70px,
+        80px 20px;
+
+    opacity: .55;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.top-nav {
+    position: fixed;
+    top: 18px;
+    left: 22px;
+    right: 22px;
+
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 100;
+}
+
+.glass-btn,
+.start-btn {
+    border: 1px solid rgba(255, 180, 225, .55);
+
+    color: white;
+
+    background: rgba(17, 13, 39, .58);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 0 25px rgba(255, 84, 173, .12),
+        inset 0 0 15px rgba(255,255,255,.04);
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.glass-btn {
+    padding: 10px 22px;
+    border-radius: 30px;
+
+    font-size: 14px;
+}
+
+.glass-btn:first-letter {
+    color: #ff9bd1;
+}
+
+.glass-btn:hover,
+.start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(255, 104, 184, .35);
+}
+
+.nav-title {
+    text-align: center;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 25px;
+
+    text-shadow: 0 0 12px rgba(255, 180, 220, .5);
+}
+
+.nav-title small {
+    font-size: 20px;
+}
+
+.nav-title span {
+    color: #ff78bb;
+    margin-left: 5px;
+}
+
+.start-btn {
+    padding: 11px 22px;
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(97, 39, 86, .8),
+            rgba(139, 48, 96, .8)
+        );
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding-top: 120px;
+    padding-bottom: 160px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    z-index: 10;
+}
+
+.small-title {
+    margin-top: 0;
+
+    color: #ff9ccc;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 28px;
+
+    text-shadow:
+        0 0 12px #ff68b4;
+}
+
+.small-title span {
+    margin: 0 15px;
+}
+
+
+.hero h1 {
+    margin-top: 5px;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(75px, 8vw, 130px);
+
+    font-weight: 400;
+
+    color: #ffb2d9;
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 8px #ff9dcc,
+        0 0 20px #ff58a9,
+        0 0 45px rgba(255, 50, 150, .65);
+}
+
+.heart-outline {
+    font-family: "Caveat", cursive;
+
+    font-size: .8em;
+
+    color: #ffb0d7;
+}
+
+
+.message {
+    margin-top: 12px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 25px;
+
+    line-height: 1.25;
+
+    color: #f7edf5;
+
+    text-shadow: 0 0 10px rgba(255,255,255,.3);
+}
+
+.message span {
+    color: #ff8fc9;
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 22px;
+}
+
+.count-box {
+    width: 98px;
+    height: 92px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 174, 221, .65);
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 160, 210, .09),
+            rgba(22, 17, 51, .5)
+        );
+
+    box-shadow:
+        0 0 25px rgba(255, 77, 174, .15),
+        inset 0 0 20px rgba(255,255,255,.03);
+}
+
+.count-box span {
+    font-family: "Caveat", cursive;
+
+    font-size: 58px;
+
+    color: #fff;
+
+    text-shadow:
+        0 0 10px #ff80bf,
+        0 0 25px #ff4ca9;
+}
+
+.dot {
+    color: #ff9fd1;
+
+    font-size: 45px;
+}
+
+.ready-text {
+    margin-top: 8px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 25px;
+
+    color: #f6dce9;
+
+    animation: floating 2s infinite ease-in-out;
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* =========================
+   BIG LANTERN
+========================= */
+
+.big-lantern-area {
+    position: relative;
+
+    width: 230px;
+    height: 330px;
+
+    margin-top: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lantern-glow {
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 157, 74, .42),
+            rgba(255, 97, 54, .12),
+            transparent 70%
+        );
+
+    filter: blur(8px);
+
+    animation: glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+    from {
+        opacity: .65;
+        transform: scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+
+.big-lantern {
+    position: relative;
+
+    width: 170px;
+    height: 285px;
+
+    z-index: 5;
+
+    filter:
+        drop-shadow(0 0 18px rgba(255,111,48,.8))
+        drop-shadow(0 0 45px rgba(255,74,37,.5));
+}
+
+
+.lantern-body {
+    position: absolute;
+
+    left: 10px;
+    right: 10px;
+
+    top: 30px;
+    bottom: 20px;
+
+    border-radius:
+        48% 48% 20% 20% /
+        8% 8% 7% 7%;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 75%,
+            #ffd26e 0%,
+            #ff9449 18%,
+            #f45d32 48%,
+            #b8362d 75%,
+            #6b2026 100%
+        );
+
+    box-shadow:
+        inset 0 0 25px rgba(255, 215, 140, .55),
+        inset 15px 0 30px rgba(255,255,255,.08),
+        inset -15px 0 25px rgba(60,0,0,.25);
+}
+
+
+.lantern-top {
+    position: absolute;
+
+    top: 15px;
+    left: 30px;
+
+    width: 110px;
+    height: 28px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #32131b,
+            #9d3b2e,
+            #3c151a
+        );
+
+    border-radius: 50%;
+
+    z-index: 3;
+}
+
+
+.lantern-bottom {
+    position: absolute;
+
+    bottom: 0;
+
+    left: 48px;
+
+    width: 74px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    background: #39151a;
+
+    box-shadow: 0 0 10px #ff8b43;
+}
+
+
+.lantern-lines {
+    position: absolute;
+    inset: 0;
+
+    border-radius:
+        48% 48% 20% 20% /
+        8% 8% 7% 7%;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 20px,
+            rgba(80,20,20,.18) 21px,
+            rgba(80,20,20,.18) 23px
+        );
+}
+
+
+.lantern-text {
+    position: absolute;
+
+    top: 105px;
+    left: 0;
+    right: 0;
+
+    text-align: center;
+
+    color: #351016;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 25px;
+
+    line-height: 1.1;
+
+    z-index: 3;
+}
+
+.lantern-text strong {
+    font-weight: 700;
+}
+
+.lantern-text span {
+    display: block;
+
+    font-size: 30px;
+}
+
+
+.flame {
+    position: absolute;
+
+    width: 18px;
+    height: 27px;
+
+    bottom: 25px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            ellipse at center bottom,
+            #fff 0%,
+            #ffd45b 30%,
+            #ff6d22 70%,
+            transparent 72%
+        );
+
+    filter: blur(.5px);
+
+    animation: flame 1s infinite alternate;
+}
+
+@keyframes flame {
+    from {
+        transform: translateX(-50%) scale(.9);
+    }
+
+    to {
+        transform: translateX(-50%) scale(1.15);
+    }
+}
+
+
+/* =========================
+   LANTERNS IN SKY
+========================= */
+
+.sky-lantern {
+    position: fixed;
+
+    width: 18px;
+    height: 30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #713026,
+            #ff8545,
+            #a43a28
+        );
+
+    border-radius: 45% 45% 20% 20%;
+
+    box-shadow:
+        0 0 12px #ff7c3c,
+        0 0 30px rgba(255,100,40,.45);
+
+    z-index: 2;
+
+    animation: rise 12s linear infinite;
+}
+
+.sky-lantern::after {
+    content: "";
+
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    left: 50%;
+    bottom: 3px;
+
+    transform: translateX(-50%);
+
+    background: #ffd46b;
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 8px #ffb84d;
+}
+
+@keyframes rise {
+
+    0% {
+        transform:
+            translateY(30vh)
+            translateX(0)
+            scale(.65);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            translateX(80px)
+            scale(1);
+        
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   FLOWERS
+========================= */
+
+.flower {
+    position: fixed;
+
+    width: 330px;
+    height: 300px;
+
+    z-index: 4;
+
+    pointer-events: none;
+}
+
+.flower-left {
+    left: -40px;
+    top: 35px;
+}
+
+.flower-right {
+    right: -40px;
+    top: 15px;
+
+    transform: scaleX(-1);
+}
+
+.branch {
+    position: absolute;
+
+    width: 320px;
+    height: 170px;
+
+    border-top: 7px solid #142e22;
+
+    border-radius: 50%;
+
+    transform: rotate(-18deg);
+
+    opacity: .9;
+}
+
+.flower-shape {
+    position: absolute;
+
+    color: #ff9eb9;
+
+    font-size: 100px;
+
+    text-shadow:
+        0 0 12px #ff6e9e,
+        0 0 30px rgba(255,77,145,.4);
+
+    animation: flowerFloat 4s infinite ease-in-out;
+}
+
+.flower-shape.f1 {
+    top: 0;
+    left: 45px;
+}
+
+.flower-shape.f2 {
+    top: 95px;
+    left: 125px;
+
+    font-size: 75px;
+}
+
+.flower-shape.f3 {
+    top: 150px;
+    left: 10px;
+
+    font-size: 65px;
+}
+
+@keyframes flowerFloat {
+
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(4deg) translateY(-4px);
+    }
+}
+
+
+/* =========================
+   POLAROIDS
+========================= */
+
+.polaroid {
+    position: fixed;
+
+    width: 180px;
+
+    padding: 10px 10px 18px;
+
+    background: #d9d0ce;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.45);
+
+    z-index: 20;
+}
+
+.polaroid-left {
+    left: 55px;
+    top: 48%;
+
+    transform: rotate(-8deg);
+}
+
+.polaroid-left-bottom {
+    left: 160px;
+    bottom: 100px;
+
+    transform: rotate(7deg);
+}
+
+.polaroid-right {
+    right: 55px;
+    top: 29%;
+
+    transform: rotate(10deg);
+}
+
+.photo {
+    width: 100%;
+    height: 145px;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.photo-sunset {
+    background-image:
+        linear-gradient(
+            rgba(255,110,80,.15),
+            rgba(30,20,70,.2)
+        ),
+        url("1000007463.jpg");
+}
+
+.photo-flower {
+    background-image:
+        url("1000004748.jpg");
+}
+
+.photo-kath {
+    background-image:
+        url("1000004492.jpg");
+}
+
+.caption {
+    padding-top: 10px;
+
+    color: #35202c;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 18px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   PAPER CARDS
+========================= */
+
+.side-card {
+    position: fixed;
+
+    z-index: 21;
+}
+
+.card-left-top {
+    left: 180px;
+    top: 200px;
+
+    transform: rotate(15deg);
+}
+
+.paper {
+    width: 355px;
+    padding: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a88c7c,
+            #c5aa95
+        );
+
+    color: #000000;
+    border: 3px solid rgba(250, 248, 250, 0.884);
+    box-shadow: 0 15px 30px rgba(0,0,0,.35);
+
+    font-family: "Caveat", cursive;
+
+    font-size: 25px;
+
+    line-height: 1.2;
+}
+
+.paper span,
+.dark-paper span {
+    display: block;
+
+    text-align: right;
+
+    font-size: 35px;
+}
+
+
+.card-right-bottom {
+    right: 35px;
+    bottom: 255px;
+
+    transform: rotate(-8deg);
+}
+
+.dark-paper {
+    width: 205px;
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #11122b,
+            #1d1938
+        );
+
+    border: 3px solid rgba(250, 250, 250, 0.884);
+
+    box-shadow: 0 20px 40px rgba(0,0,0,.5);
+
+    font-family: "Caveat", cursive;
+
+    font-size: 23px;
+
+    line-height: 1.35;
+}
+
+.dark-paper span {
+    color: #ff7ebc;
+}
+
+
+/* =========================
+   GROUND
+========================= */
+
+.ground {
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 23vh;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(7,8,22,1),
+            rgba(26,21,52,.7),
+            transparent
+        );
+}
+
+.reflection {
+    position: absolute;
+
+    left: 50%;
+    bottom: 15px;
+
+    transform: translateX(-50%);
+
+    width: 500px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,116,73,.32),
+            transparent 65%
+        );
+
+    filter: blur(15px);
+}
+
+.petal {
+    position: absolute;
+
+    font-size: 28px;
+
+    opacity: .8;
+
+    animation: petalFloat 5s infinite ease-in-out;
+}
+
+.p1 {
+    left: 20%;
+    bottom: 60px;
+}
+
+.p2 {
+    left: 35%;
+    bottom: 25px;
+}
+
+.p3 {
+    right: 25%;
+    bottom: 50px;
+}
+
+.p4 {
+    right: 12%;
+    bottom: 30px;
+}
+
+.p5 {
+    left: 55%;
+    bottom: 20px;
+}
+
+@keyframes petalFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(10deg);
+    }
+}
+
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom-nav {
+    position: fixed;
+
+    left: 50%;
+    bottom: 20px;
+
+    transform: translateX(-50%);
+
+    width: min(1000px, 70%);
+
+    padding: 10px 20px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background:
+        rgba(14, 13, 37, .72);
+
+    border:
+        1px solid rgba(255, 178, 222, .4);
+
+    backdrop-filter: blur(18px);
+
+    border-radius: 22px;
+
+    z-index: 100;
+}
+
+.nav-item {
+    min-width: 75px;
+
+    color: white;
+
+    text-decoration: none;
+
+    text-align: center;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 17px;
+
+    opacity: .9;
+
+    transition: .3s;
+}
+
+.nav-item div {
+    font-family: Arial;
+
+    font-size: 26px;
+
+    margin-bottom: 2px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: #ff8fc9;
+
+    transform: translateY(-4px);
+
+    text-shadow:
+        0 0 10px #ff55a9;
+}
+
+.nav-item.active::after {
+    content: "";
+
+    display: block;
+
+    width: 6px;
+    height: 6px;
+
+    margin: 5px auto 0;
+
+    border-radius: 50%;
+
+    background: #ff68b4;
+
+    box-shadow: 0 0 10px #ff68b4;
+}
+
+
+/* =========================
+   MUSIC PLAYER
+========================= */
+
+.music-player {
+    position: fixed;
+
+    right: 30px;
+    bottom: 20px;
+
+    width: 230px;
+
+    padding: 15px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(17,15,39,.72);
+
+    border: 1px solid rgba(255,180,220,.35);
+
+    backdrop-filter: blur(15px);
+
+    z-index: 110;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.music-info {
+    flex: 1;
+}
+
+.music-info small {
+    font-size: 11px;
+}
+
+.music-progress {
+    height: 3px;
+
+    margin-top: 8px;
+
+    background: #565064;
+
+    border-radius: 10px;
+}
+
+.music-progress span {
+    display: block;
+
+    width: 55%;
+
+    height: 100%;
+
+    background: #ff82c2;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 8px #ff82c2;
+}
+
+.music-player button {
+    width: 24px;
+    height: 24px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 1100px) {
+
+    .polaroid,
+    .side-card {
+        transform: scale(.8);
+    }
+
+    .card-left-top {
+        left: 70px;
+    }
+
+    .polaroid-left {
+        left: 10px;
+    }
+
+    .polaroid-left-bottom {
+        left: 100px;
+    }
+
+    .polaroid-right {
+        right: 10px;
+    }
+
+    .card-right-bottom {
+        right: 0;
+    }
+
+    .bottom-nav {
+        width: 80%;
+    }
+
+    .music-player {
+        display: none;
+    }
+}
+
+
+@media(max-width: 750px) {
+
+    .top-nav {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+    }
+
+    .nav-title {
+        display: none;
+    }
+
+    .glass-btn span {
+        display: none;
+    }
+
+    .start-btn {
+        font-size: 11px;
+        padding: 9px 13px;
+    }
+
+    .hero {
+        padding-top: 105px;
+    }
+
+    .hero h1 {
+        font-size: 72px;
+    }
+
+    .message {
+        font-size: 20px;
+
+        padding: 0 25px;
+    }
+
+    .count-box {
+        width: 65px;
+        height: 65px;
+    }
+
+    .count-box span {
+        font-size: 42px;
+    }
+
+    .dot {
+        font-size: 30px;
+    }
+
+    .big-lantern-area {
+        transform: scale(.75);
+
+        margin-top: -5px;
+    }
+
+    .flower {
+        opacity: .5;
+        transform: scale(.7);
+    }
+
+    .polaroid,
+    .side-card {
+        display: none;
+    }
+
+    .bottom-nav {
+        width: 95%;
+
+        bottom: 8px;
+
+        padding: 7px 3px;
+
+        border-radius: 18px;
+    }
+
+    .nav-item {
+        min-width: auto;
+
+        font-size: 12px;
+    }
+
+    .nav-item div {
+        font-size: 19px;
+    }
+
+    .nav-item:nth-child(n+6) {
+        display: none;
+    }
+}
+
+
+@media(max-width: 420px) {
+
+    .hero h1 {
+        font-size: 61px;
+    }
+
+    .small-title {
+        font-size: 22px;
+    }
+
+    .message {
+        font-size: 18px;
+    }
+
+    .countdown-wrapper {
+        gap: 7px;
+    }
+
+    .count-box {
+        width: 58px;
+        height: 58px;
+    }
+
+    .count-box span {
+        font-size: 37px;
+    }
+
+    .nav-item:nth-child(5) {
+        display: none;
+    }
+}
+
+
+/* =========================
+   CALENDAR STYLES
+========================= */
+
+.calendar-card {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    width: 280px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 180, 225, 0.4);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.2);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.calendar-header {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    color: #ffb2d9;
+    text-shadow: 0 0 8px #ff68b4;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed rgba(255, 180, 225, 0.3);
+    padding-bottom: 5px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    text-align: center;
+    font-size: 13px;
+    color: #eeddf0;
+}
+
+.day-name {
+    font-weight: 600;
+    color: #ff9ccc;
+}
+
+.special-date {
+    background: #ff58a9;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff58a9, 0 0 18px #ff1493;
+    animation: heartPulse 1.5s infinite alternate;
+}
+
+@keyframes heartPulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.18);
+    }
+}
+
+/* Fix mobile responsive issue where letter menu was hidden */
+@media(max-width: 750px) {
+    .nav-item:nth-child(n+6) {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media(max-width: 420px) {
+    .nav-item:nth-child(5) {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -1,0 +1,2301 @@
+/* ==================================================
+   RESET
+================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    color:#fff;
+
+    font-family:
+        "Hind Siliguri",
+        sans-serif;
+
+    background:#050610;
+}
+
+
+/* ==================================================
+   PAGE BACKGROUND
+================================================== */
+
+.page-bg{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-50;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 70%,
+            rgba(255,72,153,.13),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 15% 30%,
+            rgba(82,52,150,.18),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            180deg,
+            #02030b 0%,
+            #071126 40%,
+            #17132e 75%,
+            #05050c 100%
+        );
+}
+
+
+/* ==================================================
+   STARS
+================================================== */
+
+.stars{
+
+    position:absolute;
+
+    inset:-100px;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9) 1px,
+            transparent 1.7px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(255,178,220,.7) 1px,
+            transparent 1.6px
+        );
+
+    background-size:
+        110px 110px,
+        190px 190px;
+
+    opacity:.55;
+
+    animation:
+        starsMove 30s linear infinite;
+}
+
+
+.stars-b{
+
+    background-size:
+        260px 260px,
+        330px 330px;
+
+    opacity:.25;
+
+    animation-duration:45s;
+}
+
+
+@keyframes starsMove{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(80px);
+    }
+
+}
+
+
+/* ==================================================
+   MOON
+================================================== */
+
+.moon{
+
+    position:absolute;
+
+    top:110px;
+
+    right:10%;
+
+    width:75px;
+
+    height:75px;
+
+    border-radius:50%;
+
+    background:#fff3d0;
+
+    box-shadow:
+        0 0 20px #fff3c0,
+        0 0 70px rgba(255,225,150,.3);
+
+    opacity:.8;
+}
+
+
+/* ==================================================
+   GROUND LIGHT
+================================================== */
+
+.ground-light{
+
+    position:absolute;
+
+    width:900px;
+
+    height:300px;
+
+    bottom:-200px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,65,130,.32),
+            transparent 70%
+        );
+
+    filter:blur(30px);
+}
+
+
+/* ==================================================
+   TOP BAR
+================================================== */
+
+.topbar{
+
+    position:fixed;
+
+    top:16px;
+
+    left:20px;
+
+    right:20px;
+
+    height:58px;
+
+    z-index:1000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 18px;
+
+    border:
+        1px solid
+        rgba(255,177,220,.25);
+
+    border-radius:18px;
+
+    background:
+        rgba(4,6,23,.72);
+
+    backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.25);
+}
+
+
+.brand{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:23px;
+}
+
+
+.brand span{
+
+    color:#ff72b8;
+
+    text-shadow:
+        0 0 15px #ff4da8;
+}
+
+
+.chapter{
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    color:
+        rgba(255,255,255,.45);
+}
+
+
+.music-btn{
+
+    border:
+        1px solid
+        rgba(255,160,210,.4);
+
+    border-radius:25px;
+
+    padding:
+        8px 17px;
+
+    background:
+        rgba(83,26,70,.5);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+
+.music-btn:hover{
+
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(165,40,115,.55);
+
+    box-shadow:
+        0 0 25px
+        rgba(255,70,170,.3);
+}
+
+
+/* ==================================================
+   PAGE
+================================================== */
+
+.page{
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:
+        105px 20px
+        130px;
+}
+
+
+/* ==================================================
+   BIRTHDAY HEADER
+================================================== */
+
+.birthday-header{
+
+    position:relative;
+
+    z-index:10;
+
+    width:
+        min(800px,95%);
+
+    margin:auto;
+
+    text-align:center;
+}
+
+
+.tiny-heading{
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    color:#ff91c7;
+
+    text-shadow:
+        0 0 15px #ff4da8;
+}
+
+
+.birthday-title{
+
+    margin-top:7px;
+
+    line-height:.88;
+}
+
+
+.happy{
+
+    display:block;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:
+        clamp(34px,5vw,58px);
+
+    font-weight:700;
+
+    color:#ffe0ed;
+
+    letter-spacing:2px;
+
+    text-shadow:
+        0 0 10px #fff,
+        0 0 25px #ff54aa,
+        0 0 50px rgba(255,50,150,.55);
+}
+
+
+.name{
+
+    display:block;
+
+    margin-top:3px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        clamp(65px,8vw,105px);
+
+    font-weight:400;
+
+    color:#ff9ccc;
+
+    text-shadow:
+        0 0 12px #fff,
+        0 0 25px #ff4ca6,
+        0 0 55px rgba(255,40,150,.6);
+}
+
+
+.name b{
+
+    font-family:Arial;
+
+    font-size:.38em;
+
+    vertical-align:middle;
+
+    color:#ffb8d8;
+}
+
+
+.birthday-header p{
+
+    margin-top:13px;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:21px;
+
+    line-height:1.15;
+
+    color:
+        rgba(255,255,255,.72);
+}
+
+
+/* ==================================================
+   GIFT STAGE
+================================================== */
+
+.gift-stage{
+
+    position:relative;
+
+    z-index:20;
+
+    width:
+        min(1240px,96%);
+
+    margin:
+        30px auto 0;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1.05fr 1fr;
+
+    align-items:center;
+
+    gap:40px;
+}
+
+
+/* ==================================================
+   WISH CARD
+================================================== */
+
+.wish-card{
+
+    position:relative;
+
+    min-height:380px;
+
+    padding:
+        35px 30px 28px;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(57,25,54,.95),
+            rgba(19,15,35,.97)
+        );
+
+    border:
+        1px solid
+        rgba(255,178,215,.3);
+
+    box-shadow:
+        0 25px 55px
+        rgba(0,0,0,.35);
+
+    transform:
+        rotate(-2deg);
+
+    transition:.6s;
+}
+
+
+.wish-card:hover{
+
+    transform:
+        rotate(0)
+        translateY(-7px);
+}
+
+
+.card-pin{
+
+    position:absolute;
+
+    top:-8px;
+
+    left:50%;
+
+    width:85px;
+
+    height:19px;
+
+    transform:
+        translateX(-50%)
+        rotate(-3deg);
+
+    background:
+        rgba(210,175,160,.65);
+}
+
+
+.card-small{
+
+    color:#ff91c7;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+}
+
+
+.card-flower{
+
+    margin-top:4px;
+
+    color:#ff82bd;
+
+    font-size:30px;
+
+    text-shadow:
+        0 0 15px #ff45a4;
+}
+
+
+.wish-card h2{
+
+    margin-top:7px;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:36px;
+
+    line-height:1;
+
+    color:#ffe8f2;
+}
+
+
+.wish-card h2 span{
+
+    color:#ff8bc1;
+}
+
+
+.wish-card p{
+
+    margin-top:18px;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:19px;
+
+    line-height:1.15;
+
+    color:
+        rgba(255,255,255,.68);
+}
+
+
+.card-sign{
+
+    margin-top:20px;
+
+    text-align:right;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:23px;
+
+    color:#ff9bc9;
+}
+
+
+/* ==================================================
+   GIFT ZONE
+================================================== */
+
+.gift-zone{
+
+    position:relative;
+
+    height:410px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    padding-bottom:5px;
+}
+
+
+/* ==================================================
+   GIFT GLOW
+================================================== */
+
+.gift-glow{
+
+    position:absolute;
+
+    width:350px;
+
+    height:270px;
+
+    bottom:50px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,65,150,.3),
+            transparent 68%
+        );
+
+    filter:blur(18px);
+
+    animation:
+        giftGlow 2.5s ease-in-out infinite alternate;
+}
+
+
+@keyframes giftGlow{
+
+    from{
+        transform:scale(.88);
+        opacity:.55;
+    }
+
+    to{
+        transform:scale(1.08);
+        opacity:.95;
+    }
+
+}
+
+
+/* ==================================================
+   GIFT HINT
+================================================== */
+
+.gift-hint{
+
+    position:absolute;
+
+    top:5px;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:19px;
+
+    color:#ffb2d5;
+
+    opacity:.8;
+
+    animation:
+        hintFloat 2s ease-in-out infinite;
+}
+
+
+@keyframes hintFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-5px);
+    }
+
+}
+
+
+/* ==================================================
+   GIFT BOX
+================================================== */
+
+.gift-box{
+
+    position:relative;
+
+    width:260px;
+
+    height:230px;
+
+    z-index:10;
+
+    transition:
+        1.2s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+.box-shadow{
+
+    position:absolute;
+
+    bottom:-15px;
+
+    left:50%;
+
+    width:280px;
+
+    height:35px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+        rgba(0,0,0,.45);
+
+    filter:blur(12px);
+}
+
+
+.box-body{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:260px;
+
+    height:150px;
+
+    border-radius:
+        8px 8px 18px 18px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #351029,
+            #6d1948,
+            #a32c64,
+            #751c4b,
+            #321026
+        );
+
+    border:
+        1px solid
+        rgba(255,174,215,.4);
+
+    box-shadow:
+        0 25px 50px
+        rgba(0,0,0,.5);
+
+    overflow:hidden;
+}
+
+
+.box-ribbon{
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    bottom:0;
+
+    width:43px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            #c73679,
+            #ffacd0,
+            #d83d82
+        );
+}
+
+
+.box-front-line{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    top:30px;
+
+    height:1px;
+
+    background:
+        rgba(255,255,255,.12);
+}
+
+
+.box-label{
+
+    position:absolute;
+
+    left:50%;
+
+    top:58%;
+
+    width:135px;
+
+    padding:9px;
+
+    transform:
+        translate(-50%,-50%);
+
+    text-align:center;
+
+    background:#edd7da;
+
+    color:#541a39;
+
+    box-shadow:
+        0 5px 18px
+        rgba(0,0,0,.3);
+}
+
+
+.box-label small{
+
+    display:block;
+
+    font-size:7px;
+
+    letter-spacing:2px;
+}
+
+
+.box-label strong{
+
+    display:block;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:29px;
+}
+
+
+.box-label span{
+
+    font-size:7px;
+
+    letter-spacing:1px;
+}
+
+
+/* ==================================================
+   LID
+================================================== */
+
+.box-lid{
+
+    position:absolute;
+
+    left:-10px;
+
+    top:45px;
+
+    width:280px;
+
+    height:58px;
+
+    z-index:20;
+
+    border-radius:8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #3b112c,
+            #812050,
+            #a82f63,
+            #751d4b,
+            #351027
+        );
+
+    transform-origin:
+        left bottom;
+
+    transition:
+        1s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+.lid-ribbon{
+
+    position:absolute;
+
+    top:10px;
+
+    left:0;
+
+    right:0;
+
+    height:17px;
+
+    background:
+        linear-gradient(
+            #ffacd0,
+            #d63b80,
+            #ffacd0
+        );
+}
+
+
+/* ==================================================
+   BOW
+================================================== */
+
+.bow{
+
+    position:absolute;
+
+    left:50%;
+
+    top:-45px;
+
+    width:115px;
+
+    height:70px;
+
+    transform:
+        translateX(-50%);
+}
+
+
+.bow-left,
+.bow-right{
+
+    position:absolute;
+
+    width:65px;
+
+    height:43px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffaad0,
+            #a72966
+        );
+
+    border-radius:
+        70% 30% 70% 30%;
+
+    box-shadow:
+        0 0 15px
+        rgba(255,90,170,.35);
+}
+
+
+.bow-left{
+
+    left:0;
+
+    transform:
+        rotate(25deg);
+}
+
+
+.bow-right{
+
+    right:0;
+
+    transform:
+        scaleX(-1)
+        rotate(25deg);
+}
+
+
+.bow-center{
+
+    position:absolute;
+
+    left:50%;
+
+    top:24px;
+
+    width:27px;
+
+    height:27px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:50%;
+
+    background:#e44a8b;
+
+    box-shadow:
+        0 0 20px #ff65ad;
+}
+
+
+/* ==================================================
+   GIFT SPARKLES
+================================================== */
+
+.gift-sparkle{
+
+    position:absolute;
+
+    z-index:30;
+
+    color:#ffd3e8;
+
+    text-shadow:
+        0 0 10px #ff69b4;
+
+    animation:
+        sparkleFloat
+        1.7s ease-in-out infinite alternate;
+}
+
+
+.sparkle-1{
+    top:70px;
+    left:-30px;
+}
+
+
+.sparkle-2{
+    top:120px;
+    right:-30px;
+}
+
+
+.sparkle-3{
+    bottom:55px;
+    left:-45px;
+}
+
+
+.sparkle-4{
+    bottom:80px;
+    right:-40px;
+}
+
+
+@keyframes sparkleFloat{
+
+    from{
+        transform:
+            scale(.7)
+            rotate(0);
+        opacity:.4;
+    }
+
+    to{
+        transform:
+            scale(1.25)
+            rotate(25deg);
+        opacity:1;
+    }
+
+}
+
+
+/* ==================================================
+   OPEN BUTTON
+================================================== */
+
+.open-button{
+
+    position:relative;
+
+    z-index:50;
+
+    margin-top:18px;
+
+    border:
+        1px solid
+        rgba(255,178,220,.6);
+
+    border-radius:30px;
+
+    padding:
+        12px 27px;
+
+    color:white;
+
+    font-family:
+        "Hind Siliguri",
+        sans-serif;
+
+    background:
+        linear-gradient(
+            90deg,
+            #641b50,
+            #b7387b
+        );
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 25px
+        rgba(255,60,160,.3);
+
+    transition:.3s;
+}
+
+
+.open-button:hover{
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 0 40px
+        rgba(255,60,160,.55);
+}
+
+
+/* ==================================================
+   OPEN BOX ANIMATION
+================================================== */
+
+.gift-zone.opened .box-lid{
+
+    transform:
+        translateY(-130px)
+        rotate(-23deg);
+}
+
+
+.gift-zone.opened .gift-box{
+
+    opacity:0;
+
+    transform:
+        translateY(45px)
+        scale(.55)
+        rotate(-8deg);
+
+    filter:
+        blur(5px);
+
+    pointer-events:none;
+}
+
+
+.gift-zone.opened .gift-hint{
+
+    opacity:0;
+}
+
+
+.gift-zone.opened .open-button{
+
+    opacity:0;
+
+    transform:
+        translateY(20px);
+
+    pointer-events:none;
+}
+
+
+/* ==================================================
+   REVEALED GIFT
+================================================== */
+
+.revealed-gift{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:62px;
+
+    width:
+        min(390px,95%);
+
+    padding:
+        28px 25px;
+
+    transform:
+        translate(-50%,45px)
+        scale(.65);
+
+    text-align:center;
+
+    border:
+        1px solid
+        rgba(255,190,225,.55);
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(65,25,59,.96),
+            rgba(16,13,32,.98)
+        );
+
+    box-shadow:
+        0 0 30px
+        rgba(255,80,170,.25),
+
+        0 0 80px
+        rgba(255,50,160,.15),
+
+        inset 0 0 30px
+        rgba(255,100,200,.05);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    z-index:40;
+
+    transition:
+        1.2s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+.gift-zone.opened .revealed-gift{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:
+        translate(-50%,0)
+        scale(1);
+}
+
+
+.revealed-rays{
+
+    position:absolute;
+
+    inset:-50px;
+
+    z-index:-1;
+
+    border-radius:50%;
+
+    background:
+        repeating-conic-gradient(
+            from 0deg,
+            transparent 0deg 12deg,
+            rgba(255,100,180,.08) 13deg 15deg
+        );
+
+    animation:
+        raySpin 18s linear infinite;
+}
+
+
+@keyframes raySpin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+.revealed-icon{
+
+    font-size:48px;
+
+    animation:
+        flowerFloat 2s ease-in-out infinite alternate;
+}
+
+
+@keyframes flowerFloat{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-8px);
+    }
+
+}
+
+
+.revealed-small{
+
+    margin-top:4px;
+
+    color:#ff8fc3;
+
+    font-size:8px;
+
+    letter-spacing:3px;
+}
+
+
+.revealed-title{
+
+    margin-top:8px;
+
+    font-size:23px;
+
+    line-height:1.2;
+
+    color:#ffe6f1;
+}
+
+
+.revealed-title span{
+
+    color:#ff9dca;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:37px;
+}
+
+
+.revealed-gift p{
+
+    margin-top:11px;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:18px;
+
+    line-height:1.2;
+
+    color:
+        rgba(255,255,255,.7);
+}
+
+
+.revealed-heart{
+
+    margin-top:10px;
+
+    color:#ff72b8;
+
+    letter-spacing:5px;
+
+    text-shadow:
+        0 0 15px #ff3c9d;
+}
+
+
+/* ==================================================
+   PHOTO
+================================================== */
+
+.photo-card{
+
+    position:relative;
+
+    transform:
+        rotate(3deg);
+
+    transition:.6s;
+}
+
+
+.photo-card:hover{
+
+    transform:
+        rotate(0)
+        translateY(-7px);
+}
+
+
+.photo-tape{
+
+    position:absolute;
+
+    top:-10px;
+
+    left:50%;
+
+    width:90px;
+
+    height:20px;
+
+    transform:
+        translateX(-50%)
+        rotate(-4deg);
+
+    background:
+        rgba(211,177,160,.7);
+
+    z-index:5;
+}
+
+
+.photo-paper{
+
+    padding:
+        12px 12px 34px;
+
+    background:#eee1dc;
+
+    box-shadow:
+        0 25px 50px
+        rgba(0,0,0,.5);
+}
+
+
+.photo-paper img{
+
+    display:block;
+
+    width:100%;
+
+    height:280px;
+
+    object-fit:cover;
+}
+
+
+.photo-caption{
+
+    margin-top:3px;
+
+    color:#542039;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:27px;
+}
+
+
+.photo-note{
+
+    margin-top:14px;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:20px;
+
+    line-height:1.05;
+
+    color:#ffc1dd;
+}
+
+
+/* ==================================================
+   AFTER MESSAGE
+================================================== */
+
+.after-message{
+
+    position:relative;
+
+    z-index:10;
+
+    margin:
+        35px auto 0;
+
+    text-align:center;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:20px;
+
+    color:
+        rgba(255,255,255,.5);
+
+    opacity:.6;
+}
+
+
+.after-message strong{
+
+    color:#ff9ac9;
+
+    margin:0 6px;
+}
+
+
+/* ==================================================
+   DRONE SHOW
+================================================== */
+
+#droneShow{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:2000;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    background:
+        #02030b;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+
+#droneShow.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+}
+
+
+/* ==================================================
+   DRONE SKY
+================================================== */
+
+.drone-sky{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(83,48,130,.18),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(255,45,140,.08),
+            transparent 30%
+        );
+}
+
+
+.drone-stars{
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9) 1px,
+            transparent 1.6px
+        );
+
+    background-size:
+        105px 105px;
+
+    opacity:.35;
+}
+
+
+/* ==================================================
+   DRONE
+================================================== */
+
+.drone{
+
+    position:absolute;
+
+    width:34px;
+
+    height:25px;
+
+    transform:
+        translate(-50%,-50%);
+
+    opacity:0;
+
+    z-index:3;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255,85,180,.55)
+        );
+}
+
+
+.drone-body{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    width:20px;
+
+    height:10px;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #171a26,
+            #73798b,
+            #171a26
+        );
+}
+
+
+.drone-arm{
+
+    position:absolute;
+
+    top:50%;
+
+    width:17px;
+
+    height:2px;
+
+    background:#4b5060;
+}
+
+
+.drone-arm.left{
+
+    left:0;
+
+    transform:rotate(24deg);
+}
+
+
+.drone-arm.right{
+
+    right:0;
+
+    transform:rotate(-24deg);
+}
+
+
+.drone-prop{
+
+    position:absolute;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#171923;
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    animation:
+        propSpin .18s linear infinite;
+}
+
+
+.prop-a{
+    left:0;
+    top:0;
+}
+
+
+.prop-b{
+    right:0;
+    top:0;
+}
+
+
+.prop-c{
+    left:0;
+    bottom:0;
+}
+
+
+.prop-d{
+    right:0;
+    bottom:0;
+}
+
+
+@keyframes propSpin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+.drone-led{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    width:5px;
+
+    height:5px;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+        0 0 6px white,
+        0 0 14px #ff59ae,
+        0 0 25px #ff59ae;
+
+    animation:
+        ledPulse .7s ease-in-out infinite alternate;
+}
+
+
+@keyframes ledPulse{
+
+    from{
+        opacity:.45;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+/* ==================================================
+   DRONE CENTER MESSAGE
+================================================== */
+
+.drone-center-message{
+
+    position:absolute;
+
+    z-index:8;
+
+    left:50%;
+
+    top:10%;
+
+    width:
+        min(650px,88vw);
+
+    transform:
+        translate(-50%,-50%)
+        scale(.8);
+
+    text-align:center;
+
+    padding:
+        28px 25px;
+
+    border:
+        1px solid
+        rgba(255,180,220,.32);
+
+    border-radius:25px;
+
+    background:
+        rgba(8,7,24,.42);
+
+    backdrop-filter:
+        blur(7px);
+
+    box-shadow:
+        0 0 60px
+        rgba(255,55,160,.1);
+
+    opacity:0;
+
+    transition:
+        1.2s
+        cubic-bezier(.16,1,.3,1)
+        1.4s;
+}
+
+
+#droneShow.active
+.drone-center-message{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+}
+
+
+.drone-label{
+
+    color:#ff91c7;
+
+    font-size:9px;
+
+    letter-spacing:4px;
+}
+
+
+.drone-birthday{
+
+    margin-top:7px;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:
+        clamp(32px,5vw,58px);
+
+    line-height:.95;
+
+    color:#ffe3ef;
+
+    text-shadow:
+        0 0 8px white,
+        0 0 22px #ff54aa,
+        0 0 50px #ff2b96;
+}
+
+
+.drone-name{
+
+    margin-top:3px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        clamp(58px,8vw,100px);
+
+    line-height:.9;
+
+    color:#ff9dca;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #ff4ca6,
+        0 0 55px #ff278f;
+}
+
+
+.drone-name span{
+
+    font-family:Arial;
+
+    font-size:.35em;
+}
+
+
+.drone-center-message p{
+
+    margin-top:12px;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:19px;
+
+    color:
+        rgba(255,255,255,.72);
+}
+
+
+.drone-center-message strong{
+
+    color:#ff9bc9;
+}
+
+
+/* ==================================================
+   CLOSE SHOW
+================================================== */
+
+.close-show{
+
+    position:absolute;
+
+    top:25px;
+
+    right:25px;
+
+    z-index:20;
+
+    width:40px;
+
+    height:40px;
+
+    border:
+        1px solid
+        rgba(255,180,220,.3);
+
+    border-radius:50%;
+
+    background:
+        rgba(20,10,30,.6);
+
+    color:#fff;
+
+    font-size:25px;
+
+    cursor:pointer;
+}
+
+
+/* ==================================================
+   BOTTOM NAV
+================================================== */
+
+.bottom-nav{
+
+    position:fixed;
+
+    z-index:1100;
+
+    left:50%;
+
+    bottom:16px;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        min(1000px,92%);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-around;
+
+    padding:
+        8px 12px;
+
+    border:
+        1px solid
+        rgba(255,175,220,.3);
+
+    border-radius:20px;
+
+    background:
+        rgba(6,7,25,.8);
+
+    backdrop-filter:
+        blur(18px);
+}
+
+
+.nav-item{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size:16px;
+
+    transition:.3s;
+}
+
+
+.nav-item div{
+
+    font-family:Arial;
+
+    font-size:20px;
+}
+
+
+.nav-item:hover,
+.nav-item.active{
+
+    color:#ff73b8;
+
+    transform:
+        translateY(-3px);
+
+    text-shadow:
+        0 0 12px #ff3d9d;
+}
+
+
+.nav-item.active::after{
+
+    content:"";
+
+    display:block;
+
+    width:5px;
+
+    height:5px;
+
+    margin:3px auto 0;
+
+    border-radius:50%;
+
+    background:#ff69b4;
+
+    box-shadow:
+        0 0 10px #ff69b4;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:850px){
+
+    .chapter{
+
+        display:none;
+
+    }
+
+
+    .page{
+
+        padding:
+            100px 13px
+            125px;
+    }
+
+
+    .birthday-header{
+
+        width:100%;
+    }
+
+
+    .birthday-header p{
+
+        font-size:18px;
+    }
+
+
+    .gift-stage{
+
+        grid-template-columns:1fr;
+
+        gap:42px;
+
+        margin-top:30px;
+    }
+
+
+    .gift-zone{
+
+        order:1;
+
+        height:410px;
+    }
+
+
+    .wish-card{
+
+        order:2;
+
+        transform:none;
+
+        min-height:340px;
+    }
+
+
+    .photo-card{
+
+        order:3;
+
+        width:
+            min(380px,92%);
+
+        margin:auto;
+
+        transform:rotate(2deg);
+    }
+
+
+    .photo-paper img{
+
+        height:300px;
+    }
+
+
+    .bottom-nav{
+
+        width:98%;
+
+        bottom:8px;
+
+        padding:7px 5px;
+    }
+
+
+    .nav-item{
+
+        font-size:11px;
+    }
+
+
+    .nav-item div{
+
+        font-size:17px;
+    }
+
+
+    .drone-center-message{
+
+        width:91vw;
+
+        padding:
+            22px 13px;
+    }
+
+
+    .drone-center-message p{
+
+        font-size:16px;
+    }
+
+
+    .close-show{
+
+        top:80px;
+
+        right:15px;
+    }
+
+}
+
+
+@media(max-width:450px){
+
+    .topbar{
+
+        left:10px;
+
+        right:10px;
+    }
+
+
+    .brand{
+
+        font-size:20px;
+    }
+
+
+    .music-btn{
+
+        padding:
+            7px 12px;
+    }
+
+
+    .tiny-heading{
+
+        font-size:8px;
+
+        letter-spacing:2px;
+    }
+
+
+    .name{
+
+        font-size:65px;
+    }
+
+
+    .gift-box{
+
+        transform:
+            scale(.85);
+    }
+
+
+    .gift-zone.opened
+    .gift-box{
+
+        transform:
+            translateY(40px)
+            scale(.45);
+    }
+
+
+    .revealed-gift{
+
+        width:95%;
+
+        padding:
+            23px 15px;
+    }
+
+
+    .revealed-title{
+
+        font-size:20px;
+    }
+
+
+    .revealed-title span{
+
+        font-size:32px;
+    }
+
+
+    .happy{
+
+        font-size:32px;
+    }
+
+
+    .drone-birthday{
+
+        font-size:29px;
+    }
+
+
+    .drone-name{
+
+        font-size:54px;
+    }
+
+}

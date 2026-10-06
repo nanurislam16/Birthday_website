@@ -1,0 +1,358 @@
+/* =========================================================
+   RESPONSIVE ENVELOPE & LETTER CSS
+   Keep this at the end of letter-custom.css
+========================================================= */
+
+/* --- LARGE MOBILE (Below 600px) --- */
+@media (max-width: 600px) {
+    .letter-main-wrapper {
+        padding-top: 80px;
+        padding-bottom: 100px;
+    }
+
+    .click-hint {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    /* Envelope Scaling */
+    .envelope-wrapper {
+        width: 320px;
+        height: 220px;
+    }
+
+    .envelope-flap {
+        border-width: 120px 160px 0 160px;
+    }
+
+    .envelope-front::before {
+        border-width: 110px 0 0 320px;
+    }
+
+    .envelope-front::after {
+        border-width: 0 0 110px 320px;
+    }
+
+    .wax-seal {
+        top: 110px;
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Opened Letter State */
+    .envelope-wrapper.open .letter-paper {
+        transform: translateY(-200px); /* Adjust based on new height */
+    }
+}
+
+/* --- SMALL MOBILE (Below 400px) --- */
+@media (max-width: 400px) {
+    /* Further Scaling */
+    .envelope-wrapper {
+        width: 280px;
+        height: 190px;
+    }
+
+    .envelope-flap {
+        border-width: 100px 140px 0 140px;
+    }
+
+    .envelope-front::before {
+        border-width: 95px 0 0 280px;
+    }
+
+    .envelope-front::after {
+        border-width: 0 0 95px 280px;
+    }
+
+    .wax-seal {
+        top: 95px;
+        width: 45px;
+        height: 45px;
+    }
+
+    /* Letter Content Adjustments */
+    .letter-paper {
+        padding: 20px 15px;
+    }
+
+    .salutation {
+        font-size: 22px;
+    }
+
+    .paragraph {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .wish {
+        font-size: 18px;
+    }
+
+    .signature strong {
+        font-size: 19px;
+    }
+
+    /* Opened Letter State for small screens */
+    .envelope-wrapper.open .letter-paper {
+        transform: translateY(-170px);
+    }
+}
+
+/* ===================================
+   ENVELOPE & HANDWRITTEN LETTER CSS
+====================================== */
+
+.letter-main-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 15px 160px;
+    position: relative;
+    z-index: 10;
+}
+
+.click-hint {
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    color: #ffb2d9;
+    text-shadow: 0 0 10px #ff58a9;
+    margin-bottom: 25px;
+    animation: bounceText 1.8s infinite ease-in-out;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes bounceText {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Envelope Container */
+.envelope-wrapper {
+    position: relative;
+    width: 360px;
+    height: 250px;
+    background-color: #3b1928;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 30px rgba(255, 105, 180, 0.2);
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.envelope-wrapper:hover {
+    transform: scale(1.02);
+}
+
+/* Envelope Back */
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #4a1e31, #2a0f1d);
+    border-radius: 12px;
+}
+
+/* Envelope Front Pocket */
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+    border-radius: 12px;
+    background: transparent;
+}
+
+.envelope-front::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 130px 0 0 360px;
+    border-color: transparent transparent transparent #381525;
+}
+
+.envelope-front::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 130px 360px;
+    border-color: transparent transparent #2c0e1c transparent;
+}
+
+/* Envelope Top Flap */
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 140px 180px 0 180px;
+    border-color: #57223a transparent transparent transparent;
+    transform-origin: top;
+    transition: transform 0.6s ease-in-out, z-index 0.6s ease-in-out;
+    z-index: 5;
+}
+
+/* Wax Seal Button */
+.wax-seal {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 55px;
+    height: 55px;
+    background: radial-gradient(circle, #ff2a70, #9e0c38);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5), inset 0 0 8px rgba(255,255,255,0.4);
+    z-index: 6;
+    transition: transform 0.3s ease, opacity 0.4s ease;
+    border: 2px dashed #ff85ad;
+}
+
+.wax-seal span {
+    font-size: 24px;
+    color: #fff;
+    text-shadow: 0 0 5px #ffb3cc;
+}
+
+.wax-seal:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Letter Paper Inside Envelope */
+.letter-paper {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 10px;
+    top: 10px;
+    background: #fffdf2;
+    border-radius: 10px;
+    padding: 30px 22px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 3;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), top 0.8s ease, height 0.8s ease;
+    overflow: hidden;
+    color: #2c1d11;
+    border: 1px solid #e8d8c8;
+}
+
+/* Handwritten Typography */
+.letter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: 'Caveat', cursive;
+}
+
+.flower-icon { font-size: 26px; }
+
+.date-stamp {
+    font-size: 20px;
+    color: #b54269;
+    font-weight: bold;
+}
+
+.salutation {
+    font-family: 'Galada', cursive;
+    font-size: 26px;
+    color: #8a1c41;
+    margin-bottom: 15px;
+}
+
+.paragraph {
+    font-family: 'Galada', 'Hind Siliguri', cursive;
+    font-size: 18px;
+    line-height: 1.9;
+    color: #3b2219;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.letter-footer {
+    margin-top: 25px;
+    text-align: right;
+}
+
+.wish {
+    font-family: 'Galada', cursive;
+    font-size: 20px;
+    color: #9e1b47;
+    margin-bottom: 10px;
+}
+
+.signature span {
+    display: block;
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 14px;
+    color: #665247;
+}
+
+.signature strong {
+    font-family: 'Galada', cursive;
+    font-size: 22px;
+    color: #8a1c41;
+}
+
+/* ===================================
+   OPEN ENVELOPE ANIMATION STATE
+====================================== */
+
+.envelope-wrapper.open .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 2;
+}
+
+.envelope-wrapper.open .wax-seal {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.envelope-wrapper.open .letter-paper {
+    transform: translateY(-240px);
+    height: auto;
+    max-height: 700px;
+    z-index: 10;
+    position: relative;
+    left: -15px;
+    width: calc(100% + 30px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 25px rgba(255, 182, 193, 0.4);
+    overflow-y: auto;
+}
+
+/* Responsive Scaling */
+@media(max-width: 480px) {
+    .envelope-wrapper {
+        width: 310px;
+        height: 220px;
+    }
+    .envelope-flap {
+        border-width: 120px 155px 0 155px;
+    }
+    .envelope-front::before {
+        border-width: 110px 0 0 310px;
+    }
+    .envelope-front::after {
+        border-width: 0 0 110px 310px;
+    }
+    .envelope-wrapper.open .letter-paper {
+        transform: translateY(-200px);
+    }
+    .paragraph {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+}

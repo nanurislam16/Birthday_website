@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Kathgolap ❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="birthday.css">
+</head>
+
+<body>
+
+    <div class="sky"></div>
+    <div class="stars"></div>
+    <div id="lanternSky"></div>
+
+    <!-- NAVBAR -->
+    <nav class="top-nav">
+        <a href="index.html" class="logo">
+            ✦ <span>A Little Story</span>
+        </a>
+        <button id="musicBtn" class="music-btn">♪ Music Off</button>
+    </nav>
+
+    <!-- MAIN PAGE -->
+    <main class="birthday-page">
+
+        <!-- 1. UPER MESSAGE CARD -->
+        <div class="top-message-card">
+            <div class="eyebrow">A LITTLE BIRTHDAY MOMENT</div>
+            <h1>Make a Wish <span>♡</span></h1>
+            <p id="topIntroText" class="intro">
+                আজকের এই ছোট্ট মুহূর্তটা শুধু তোমার জন্য...<br>
+                চোখ বন্ধ করো, একটা wish করো আর মোমবাতিগুলো নিভিয়ে দাও। ✨
+            </p>
+        </div>
+
+        <!-- 2. CENTER CAKE AREA -->
+        <section class="cake-area">
+            <div class="cake-glow"></div>
+
+            <div class="candles">
+                <div class="candle candle-one"><div class="flame"></div><div class="wick"></div></div>
+                <div class="candle candle-two"><div class="flame"></div><div class="wick"></div></div>
+                <div class="candle candle-three"><div class="flame"></div><div class="wick"></div></div>
+                <div class="candle candle-four"><div class="flame"></div><div class="wick"></div></div>
+                <div class="candle candle-five"><div class="flame"></div><div class="wick"></div></div>
+            </div>
+
+            <div class="cake">
+                <div class="cake-top">
+                    <div class="cream cream-one"></div>
+                    <div class="cream cream-two"></div>
+                    <div class="cream cream-three"></div>
+                    <div class="cake-text">Kathgolap <span>♡</span></div>
+                </div>
+                <div class="cake-middle">
+                    <div class="cream-drip d1"></div>
+                    <div class="cream-drip d2"></div>
+                    <div class="cream-drip d3"></div>
+                    <div class="cream-drip d4"></div>
+                </div>
+                <div class="cake-bottom">
+                    <div class="cake-decoration">✦ &nbsp; ✿ &nbsp; ✦ &nbsp; ✿ &nbsp; ✦</div>
+                </div>
+            </div>
+
+            <div class="plate"></div>
+            <div id="knife" class="knife">
+                <div class="knife-handle"></div>
+                <div class="knife-blade"></div>
+            </div>
+        </section>
+
+        <!-- ACTION BUTTONS -->
+        <div class="action-area">
+            <button id="wishBtn" class="main-btn">Make a Wish & Blow Candles</button>
+            <button id="cutBtn" class="main-btn cut-btn">🔪 Cut the Cake</button>
+        </div>
+
+        <!-- 3. NICHER MESSAGE CARD (APPEARS AFTER CAKE CUT) -->
+        <div id="bottomCard" class="bottom-message-card">
+            <div class="final-heart">♥</div>
+            <h2>The Cake is Cut! 🎂</h2>
+            <p>A sweet little moment for a very special person.</p>
+            <strong>Stay happy. Stay beautiful. Always. ♡</strong>
+        </div>
+
+    </main>
+
+    <!-- BOTTOM NAV -->
+    <div class="bottom-nav">
+        <a href="index.html" class="nav-item"><div>⌂</div><span>Home</span></a>
+        <a href="birthday.html" class="nav-item active"><div>♕</div><span>Birthday</span></a>
+        <a href="memories.html" class="nav-item"><div>▧</div><span>Memories</span></a>
+        <a href="gift.html" class="nav-item"><div>🎁</div><span>Gift</span></a>
+        <a href="wishes.html" class="nav-item"><div>♡</div><span>Wishes</span></a>
+        <a href="letter.html" class="nav-item"><div>✎</div><span>Letter</span></a>
+    </div>
+
+    <audio id="birthdayMusic" loop>
+        <source src="birthday.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="birthday.js"></script>
+
+</body>
+</html>
