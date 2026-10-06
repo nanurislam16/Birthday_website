@@ -1,0 +1,2671 @@
+/* =========================================================
+   ADDITIONAL RESPONSIVE FIXES FOR MEMORIES PAGE
+   Add this to the VERY END of memories.css
+========================================================= */
+
+/* Fix for Tablets and Medium Screens */
+@media (max-width: 992px) {
+    .memory-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .intro-card {
+        padding: 35px;
+        gap: 30px;
+    }
+}
+
+/* Extra fixes for Phones */
+@media (max-width: 700px) {
+    /* Existing media query in your file covers most things, 
+       just adding specific gallery fixes here */
+    
+    .gallery-section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .memory-grid {
+        grid-template-columns: 1fr; /* 1 column for phones */
+        max-width: 350px; /* Centered, thin column */
+        gap: 40px;
+    }
+
+    /* Adjust specific card rotations for single column */
+    .memory-card {
+        transform: rotate(0deg) !important; /* Remove heavy rotation on mobile */
+        margin-bottom: 10px;
+    }
+
+    /* Scale Hero Text more aggressively if clamp fails */
+    .memory-hero h1 {
+        font-size: 60px !important;
+    }
+
+    /* Letter Card Padding */
+    .letter-card {
+        padding: 40px 20px;
+    }
+}
+
+/* For very small phones */
+@media (max-width: 360px) {
+    .memory-hero h1 {
+        font-size: 50px !important;
+    }
+    
+    .timeline-card h3 {
+        font-size: 26px;
+    }
+}
+
+/* =========================================================
+   MEMORIES PAGE
+   KATHGOLAP / MUNMUN
+   PREMIUM NIGHT SKY THEME
+========================================================= */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    color: white;
+
+    font-family: "Montserrat", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(112,55,133,.35),
+            transparent 32%
+        ),
+        linear-gradient(
+            180deg,
+            #030817 0%,
+            #09132e 35%,
+            #1c1537 70%,
+            #080817 100%
+        );
+}
+
+
+/* =========================================================
+   SKY
+========================================================= */
+
+
+.sky {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -20;
+
+    pointer-events: none;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 75%,
+            rgba(255,105,165,.18),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(135,82,255,.10),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 80% 45%,
+            rgba(255,91,175,.10),
+            transparent 28%
+        );
+}
+
+
+.stars {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -18;
+
+    pointer-events: none;
+
+    opacity: .7;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            white 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            circle,
+            #ffb5dc 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            circle,
+            #ffd9a8 1px,
+            transparent 1px
+        );
+
+    background-size:
+        100px 100px,
+        170px 170px,
+        240px 240px;
+
+    animation:
+        starMove 35s linear infinite;
+}
+
+
+@keyframes starMove {
+
+    from {
+        background-position:
+            0 0,
+            40px 70px,
+            80px 20px;
+    }
+
+    to {
+        background-position:
+            100px 100px,
+            210px 170px,
+            320px 220px;
+    }
+
+}
+
+
+/* =========================================================
+   MOON
+========================================================= */
+
+
+.moon {
+    position: fixed;
+
+    top: 120px;
+    right: 9%;
+
+    width: 105px;
+    height: 105px;
+
+    border-radius: 50%;
+
+    z-index: -5;
+
+    background:
+        radial-gradient(
+            circle at 35% 35%,
+            #fffdfb,
+            #ffe7ef 60%,
+            #e8cbdc 100%
+        );
+
+    box-shadow:
+        0 0 20px rgba(255,226,241,.65),
+        0 0 70px rgba(255,176,215,.35);
+
+    opacity: .9;
+}
+
+
+.moon-glow {
+    position: absolute;
+
+    inset: -30px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,181,218,.15),
+            transparent 65%
+        );
+}
+
+
+/* =========================================================
+   FANUSH
+========================================================= */
+
+
+#lanternContainer {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+.sky-lantern {
+    position: absolute;
+
+    bottom: -80px;
+
+    width: 24px;
+    height: 38px;
+
+    border-radius:
+        45% 45% 22% 22%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #ffd76d 0%,
+            #ff944d 28%,
+            #d94b35 65%,
+            #6f252c 100%
+        );
+
+    box-shadow:
+        0 0 10px #ff8745,
+        0 0 30px rgba(255,105,54,.7),
+        0 0 60px rgba(255,78,40,.25);
+
+    opacity: 0;
+
+    animation:
+        fanushRise
+        var(--duration)
+        linear
+        forwards;
+}
+
+
+.sky-lantern::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 3px;
+
+    width: 8px;
+    height: 8px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background: #ffe48a;
+
+    box-shadow:
+        0 0 8px #fff0a4,
+        0 0 15px #ff9d4d;
+}
+
+
+.sky-lantern::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: -5px;
+
+    width: 15px;
+    height: 5px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        #4c1a24;
+}
+
+
+@keyframes fanushRise {
+
+    0% {
+
+        transform:
+            translate3d(
+                0,
+                15vh,
+                0
+            )
+            scale(.55)
+            rotate(-3deg);
+
+        opacity: 0;
+
+    }
+
+    8% {
+        opacity: .95;
+    }
+
+    35% {
+
+        transform:
+            translate3d(
+                var(--drift-one),
+                -30vh,
+                0
+            )
+            scale(.75)
+            rotate(3deg);
+
+        opacity: 1;
+
+    }
+
+    65% {
+
+        transform:
+            translate3d(
+                var(--drift-two),
+                -75vh,
+                0
+            )
+            scale(.9)
+            rotate(-3deg);
+
+        opacity: .9;
+
+    }
+
+    100% {
+
+        transform:
+            translate3d(
+                var(--drift-three),
+                -125vh,
+                0
+            )
+            scale(1.08)
+            rotate(4deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   HEARTS
+========================================================= */
+
+
+#heartContainer {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+.floating-heart {
+
+    position: absolute;
+
+    bottom: -30px;
+
+    color: #ff91c9;
+
+    text-shadow:
+        0 0 12px #ff5cab;
+
+    animation:
+        heartRise
+        var(--duration)
+        linear
+        forwards;
+}
+
+
+@keyframes heartRise {
+
+    from {
+
+        transform:
+            translateY(0)
+            scale(.5)
+            rotate(0);
+
+        opacity: 0;
+
+    }
+
+    15% {
+        opacity: .7;
+    }
+
+    to {
+
+        transform:
+            translateY(-115vh)
+            translateX(var(--drift))
+            scale(1.15)
+            rotate(25deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+
+.top-nav {
+
+    position: fixed;
+
+    top: 20px;
+
+    left: 25px;
+    right: 25px;
+
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    z-index: 100;
+}
+
+
+.back-btn,
+.music-btn {
+
+    border:
+        1px solid
+        rgba(255,177,220,.45);
+
+    background:
+        rgba(16,12,38,.65);
+
+    backdrop-filter:
+        blur(16px);
+
+    color: white;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    padding: 11px 20px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    font-family: "Montserrat", sans-serif;
+}
+
+
+.back-btn:hover,
+.music-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 0 25px
+        rgba(255,90,175,.3);
+
+    border-color:
+        rgba(255,170,220,.75);
+}
+
+
+.nav-center {
+
+    text-align: center;
+
+    font-family: "Caveat", cursive;
+
+    text-shadow:
+        0 0 15px
+        rgba(255,156,207,.5);
+}
+
+
+.nav-center small {
+
+    display: block;
+
+    font-size: 15px;
+
+    color: #d9c8db;
+}
+
+
+.nav-center span {
+
+    color: #ff9bc9;
+
+    font-size: 24px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+
+.memory-hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding:
+        130px 20px
+        100px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.hero-small {
+
+    color: #ff91c6;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 27px;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 15px #ff65af;
+}
+
+
+.memory-hero h1 {
+
+    margin-top: 12px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-weight: 400;
+
+    font-size:
+        clamp(
+            80px,
+            12vw,
+            170px
+        );
+
+    line-height: .95;
+
+    color: #ffd0e6;
+
+    text-shadow:
+        0 0 10px #ffb1d5,
+        0 0 30px #ff62ad,
+        0 0 70px
+        rgba(255,46,155,.55);
+}
+
+
+.memory-hero h1 span {
+
+    color: #ff8fc6;
+
+}
+
+
+.memory-hero p {
+
+    margin-top: 25px;
+
+    max-width: 650px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 27px;
+
+    line-height: 1.25;
+
+    color: #eee4ee;
+
+}
+
+
+.memory-hero strong {
+
+    color: #ff9bc9;
+
+}
+
+
+.scroll-indicator {
+
+    position: absolute;
+
+    bottom: 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: #dcbfd4;
+
+    animation:
+        scrollFloat
+        2s ease-in-out
+        infinite;
+}
+
+
+.scroll-indicator span {
+
+    font-size: 25px;
+
+    color: #ff8fc6;
+
+}
+
+
+.scroll-indicator small {
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+@keyframes scrollFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(8px);
+    }
+
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+
+.intro-section {
+
+    padding:
+        80px 20px
+        130px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.intro-card {
+
+    width:
+        min(950px, 92vw);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        180px 1fr;
+
+    gap: 45px;
+
+    align-items: center;
+
+    padding: 55px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(75,43,76,.7),
+            rgba(20,17,44,.85)
+        );
+
+    border:
+        1px solid
+        rgba(255,180,220,.3);
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.45),
+
+        inset 0 0 40px
+        rgba(255,123,187,.04);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+
+.intro-flower {
+
+    width: 150px;
+    height: 150px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,122,175,.2),
+            rgba(255,122,175,.03),
+            transparent
+        );
+
+    font-size: 85px;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(255,100,170,.55)
+        );
+
+    animation:
+        flowerPulse
+        3s ease-in-out
+        infinite;
+}
+
+
+@keyframes flowerPulse {
+
+    0%,
+    100% {
+        transform:
+            scale(1)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            scale(1.08)
+            rotate(3deg);
+    }
+
+}
+
+
+.intro-label {
+
+    color: #ff91c8;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+}
+
+
+.intro-content h2 {
+
+    margin-top: 10px;
+
+    color: #ffd5e7;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 52px;
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+.intro-content p {
+
+    margin-top: 18px;
+
+    max-width: 600px;
+
+    color: #d9cbd9;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size: 23px;
+
+    line-height: 1.35;
+}
+
+
+.signature {
+
+    margin-top: 22px;
+
+    color: #cdb9cc;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size: 20px;
+}
+
+
+.signature span {
+
+    color: #ff9acb;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 32px;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+
+.section-heading {
+
+    text-align: center;
+
+    margin-bottom: 60px;
+}
+
+
+.section-heading span {
+
+    color: #ff91c7;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+}
+
+
+.section-heading h2 {
+
+    margin-top: 10px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-weight: 400;
+
+    font-size:
+        clamp(
+            48px,
+            6vw,
+            75px
+        );
+
+    color: #ffd0e5;
+
+    text-shadow:
+        0 0 25px
+        rgba(255,100,175,.35);
+}
+
+
+.section-heading p {
+
+    margin-top: 7px;
+
+    color: #cdbfd0;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size: 21px;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+
+.gallery-section {
+
+    padding:
+        80px 30px
+        140px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.memory-grid {
+
+    width:
+        min(1200px, 94vw);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 55px 35px;
+}
+
+
+.memory-card {
+
+    position: relative;
+
+    padding: 15px 15px 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eee5e9,
+            #d8cbd1
+        );
+
+    color: #362532;
+
+    box-shadow:
+        0 25px 45px
+        rgba(0,0,0,.45);
+
+    transition:
+        transform .5s,
+        box-shadow .5s;
+
+    overflow: visible;
+}
+
+
+.card-one {
+    transform: rotate(-3deg);
+}
+
+
+.card-two {
+    transform: rotate(2deg);
+}
+
+
+.card-three {
+    transform: rotate(-2deg);
+}
+
+
+.card-four {
+    transform: rotate(2deg);
+}
+
+
+.card-five {
+    transform: rotate(-2deg);
+}
+
+
+.card-six {
+    transform: rotate(3deg);
+}
+
+
+.memory-card:hover {
+
+    transform:
+        rotate(0)
+        translateY(-14px)
+        scale(1.025);
+
+    box-shadow:
+        0 35px 65px
+        rgba(0,0,0,.55),
+
+        0 0 35px
+        rgba(255,93,171,.2);
+
+}
+
+
+.tape {
+
+    position: absolute;
+
+    top: -15px;
+
+    left: 50%;
+
+    width: 75px;
+    height: 30px;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+
+    background:
+        rgba(255,211,227,.72);
+
+    box-shadow:
+        0 3px 5px
+        rgba(0,0,0,.15);
+
+    z-index: 3;
+}
+
+
+.memory-photo {
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1.05;
+
+    background-size: cover;
+
+    background-position: center;
+
+    filter:
+        saturate(.92);
+
+    transition:
+        filter .4s,
+        transform .5s;
+
+    overflow: hidden;
+}
+
+
+.memory-card:hover
+.memory-photo {
+
+    filter:
+        saturate(1.1)
+        brightness(1.05);
+
+}
+
+
+.photo-one {
+    background-image:
+        url("1000007463.jpg");
+}
+
+
+.photo-two {
+    background-image:
+        url("1000004748.jpg");
+}
+
+
+.photo-three {
+    background-image:
+        url("1000004492.jpg");
+}
+
+
+.photo-four {
+    background-image:
+        url("Screenshot_2025-07-29-22-29-49-113_com.whatsapp.jpg");
+}
+
+
+.photo-five {
+    background-image:
+        url("Screenshot_2025-07-29-22-50-44-705_com.whatsapp.jpg");
+}
+
+
+.photo-six {
+    background-image:
+        url("1787574084820.jpg");
+}
+
+
+.card-content {
+
+    padding:
+        18px 5px 0;
+}
+
+
+.memory-number {
+
+    color: #b08d9f;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+.card-content h3 {
+
+    margin-top: 5px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 34px;
+
+    font-weight: 400;
+
+    color: #412a38;
+}
+
+
+.card-content p {
+
+    margin-top: 5px;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size: 20px;
+
+    line-height: 1.15;
+
+    color: #5c4452;
+}
+
+
+.memory-date {
+
+    display: block;
+
+    margin-top: 13px;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    color: #8e7180;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+
+.timeline-section {
+
+    padding:
+        100px 25px
+        140px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.timeline {
+
+    width:
+        min(850px, 94vw);
+
+    margin: auto;
+
+    position: relative;
+
+    padding:
+        20px 0;
+}
+
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #ff87bd,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(255,103,176,.6);
+}
+
+
+.timeline-item {
+
+    width: 50%;
+
+    padding: 25px;
+
+    position: relative;
+}
+
+
+.timeline-item:nth-child(odd) {
+
+    left: 0;
+
+    text-align: right;
+
+}
+
+
+.timeline-item:nth-child(even) {
+
+    left: 50%;
+
+    text-align: left;
+
+}
+
+
+.timeline-dot {
+
+    position: absolute;
+
+    top: 35px;
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #ff9bc9;
+
+    background:
+        #15102e;
+
+    border:
+        1px solid
+        rgba(255,159,209,.6);
+
+    box-shadow:
+        0 0 20px
+        rgba(255,89,171,.45);
+
+    z-index: 3;
+}
+
+
+.timeline-item:nth-child(odd)
+.timeline-dot {
+
+    right: -18px;
+
+}
+
+
+.timeline-item:nth-child(even)
+.timeline-dot {
+
+    left: -18px;
+
+}
+
+
+.timeline-card {
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(23,18,46,.7);
+
+    border:
+        1px solid
+        rgba(255,171,217,.2);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.25);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+
+.timeline-card small {
+
+    color: #ff8fc5;
+
+    letter-spacing: 2px;
+
+    font-size: 9px;
+}
+
+
+.timeline-card h3 {
+
+    margin-top: 8px;
+
+    color: #ffd1e5;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 32px;
+
+    font-weight: 400;
+}
+
+
+.timeline-card p {
+
+    margin-top: 7px;
+
+    color: #cfc2d0;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size: 19px;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+
+.letter-section {
+
+    padding:
+        80px 20px
+        150px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.letter-card {
+
+    width:
+        min(750px, 92vw);
+
+    margin: auto;
+
+    position: relative;
+
+    padding:
+        70px 70px 65px;
+
+    text-align: center;
+
+    color: #35232f;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e6d8d3,
+            #cbb4b3
+        );
+
+    border:
+        8px solid
+        rgba(255,255,255,.45);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.5);
+
+    transform:
+        rotate(-1deg);
+}
+
+
+.letter-label {
+
+    color: #84616f;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+
+.letter-card h2 {
+
+    margin-top: 8px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-weight: 400;
+
+    font-size: 65px;
+
+    color: #492b3c;
+}
+
+
+.letter-line {
+
+    width: 80px;
+
+    height: 1px;
+
+    margin: 12px auto 25px;
+
+    background: #9b7485;
+}
+
+
+.letter-card p {
+
+    margin-top: 16px;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size: 23px;
+
+    line-height: 1.3;
+}
+
+
+.letter-signature {
+
+    margin-top: 30px;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size: 19px;
+}
+
+
+.letter-signature span {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 35px;
+
+    color: #743d58;
+}
+
+
+.letter-decoration {
+
+    position: absolute;
+
+    color: #9b5e79;
+
+    font-size: 30px;
+}
+
+
+.letter-decoration.top {
+
+    top: 20px;
+
+    left: 25px;
+}
+
+
+.letter-decoration.bottom {
+
+    right: 25px;
+
+    bottom: 20px;
+}
+
+
+/* =========================================================
+   CANDLE
+========================================================= */
+
+
+.candle-section {
+
+    min-height: 750px;
+
+    padding:
+        100px 20px;
+
+    position: relative;
+
+    z-index: 5;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.candle-title span {
+
+    color: #ff8fc6;
+
+    letter-spacing: 4px;
+
+    font-size: 10px;
+}
+
+
+.candle-title h2 {
+
+    margin-top: 12px;
+
+    color: #ffd0e4;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-weight: 400;
+
+    font-size:
+        clamp(
+            42px,
+            6vw,
+            70px
+        );
+}
+
+
+.candle-area {
+
+    position: relative;
+
+    width: 230px;
+    height: 330px;
+
+    margin-top: 55px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+}
+
+
+.candle-glow {
+
+    position: absolute;
+
+    width: 330px;
+    height: 330px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,151,71,.38),
+            rgba(255,92,44,.1),
+            transparent 70%
+        );
+
+    filter: blur(10px);
+
+    animation:
+        candleGlow
+        2s ease-in-out
+        infinite alternate;
+}
+
+
+@keyframes candleGlow {
+
+    from {
+        transform: scale(.88);
+        opacity: .65;
+    }
+
+    to {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+}
+
+
+.candle {
+
+    position: relative;
+
+    width: 100px;
+
+    height: 240px;
+
+    z-index: 2;
+}
+
+
+.candle-body {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    width: 95px;
+
+    height: 200px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        12px 12px 8px 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #78364c,
+            #e06c91,
+            #8e3d58
+        );
+
+    box-shadow:
+        inset 10px 0 15px
+        rgba(255,255,255,.13),
+
+        inset -10px 0 15px
+        rgba(50,0,20,.2),
+
+        0 0 25px
+        rgba(255,102,160,.2);
+}
+
+
+.candle-body::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: -9px;
+
+    height: 20px;
+
+    border-radius: 50%;
+
+    background:
+        #ed8dab;
+
+}
+
+
+.candle-body span {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color:
+        rgba(255,240,245,.8);
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 55px;
+
+    text-shadow:
+        0 0 10px
+        rgba(255,255,255,.25);
+}
+
+
+.candle-base {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 125px;
+
+    height: 28px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #351a2a,
+            #8d4865,
+            #351a2a
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(255,91,159,.35);
+}
+
+
+.candle-flame {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: -25px;
+
+    width: 34px;
+
+    height: 65px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        50% 50% 50% 50% /
+        65% 65% 35% 35%;
+
+    background:
+        radial-gradient(
+            ellipse at center bottom,
+            #fff 0%,
+            #ffe17a 25%,
+            #ff8c35 60%,
+            transparent 72%
+        );
+
+    filter:
+        blur(.5px)
+        drop-shadow(
+            0 0 12px #ff9b43
+        );
+
+    animation:
+        flameMove
+        .7s ease-in-out
+        infinite alternate;
+
+    z-index: 5;
+}
+
+
+.flame-inner {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 8px;
+
+    width: 12px;
+    height: 28px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background: white;
+
+    filter:
+        blur(1px);
+}
+
+
+@keyframes flameMove {
+
+    from {
+
+        transform:
+            translateX(-50%)
+            scale(.85)
+            rotate(-3deg);
+
+    }
+
+    to {
+
+        transform:
+            translateX(-50%)
+            scale(1.12)
+            rotate(4deg);
+
+    }
+
+}
+
+
+.wish-text {
+
+    margin-top: 35px;
+
+    color: #dfd1de;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size: 24px;
+
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+
+.final-section {
+
+    min-height: 90vh;
+
+    padding:
+        100px 20px
+        180px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.final-stars {
+
+    color: #ffb2d8;
+
+    font-size: 30px;
+
+    animation:
+        finalSpark
+        2s ease-in-out
+        infinite alternate;
+}
+
+
+@keyframes finalSpark {
+
+    from {
+        transform:
+            scale(.8)
+            rotate(0);
+        opacity: .5;
+    }
+
+    to {
+        transform:
+            scale(1.25)
+            rotate(15deg);
+        opacity: 1;
+    }
+
+}
+
+
+.final-section > span {
+
+    margin-top: 25px;
+
+    color: #ff91c7;
+
+    letter-spacing: 5px;
+
+    font-size: 10px;
+}
+
+
+.final-section h2 {
+
+    margin-top: 15px;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        clamp(
+            60px,
+            9vw,
+            115px
+        );
+
+    font-weight: 400;
+
+    line-height: .95;
+
+    color: #ffd0e5;
+
+    text-shadow:
+        0 0 12px #ff9dcc,
+        0 0 35px #ff5baa,
+        0 0 70px
+        rgba(255,55,155,.45);
+}
+
+
+.final-section h3 {
+
+    margin-top: 25px;
+
+    color: #e4d6e1;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size: 27px;
+
+    font-weight: 400;
+}
+
+
+.final-heart {
+
+    margin-top: 35px;
+
+    color: #ff79b9;
+
+    font-size: 55px;
+
+    text-shadow:
+        0 0 15px #ff4ca4,
+        0 0 35px #ff4ca4;
+
+    animation:
+        heartBeat
+        1.3s
+        infinite;
+}
+
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.2);
+    }
+
+}
+
+
+.final-section p {
+
+    margin-top: 25px;
+
+    color: #ffb2d5;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size: 28px;
+}
+
+
+/* =========================================================
+   BOTTOM NAV
+========================================================= */
+
+
+.bottom-nav {
+
+    position: fixed;
+
+    left: 50%;
+    bottom: 18px;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        min(900px, 90%);
+
+    padding:
+        10px 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-around;
+
+    background:
+        rgba(13,11,34,.76);
+
+    border:
+        1px solid
+        rgba(255,177,220,.35);
+
+    border-radius: 22px;
+
+    backdrop-filter:
+        blur(18px);
+
+    z-index: 150;
+}
+
+
+.nav-item {
+
+    min-width: 70px;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    text-align: center;
+
+    font-family:
+        "Caveat",
+        cursive;
+
+    font-size: 16px;
+
+    transition: .3s;
+}
+
+
+.nav-item div {
+
+    font-family: Arial;
+
+    font-size: 24px;
+
+    margin-bottom: 2px;
+}
+
+
+.nav-item:hover,
+.nav-item.active {
+
+    color: #ff8fc7;
+
+    transform:
+        translateY(-4px);
+
+    text-shadow:
+        0 0 12px
+        #ff54a8;
+}
+
+
+.nav-item.active::after {
+
+    content: "";
+
+    display: block;
+
+    width: 6px;
+    height: 6px;
+
+    margin:
+        5px auto 0;
+
+    border-radius: 50%;
+
+    background: #ff68b4;
+
+    box-shadow:
+        0 0 12px
+        #ff68b4;
+}
+
+
+/* =========================================================
+   MUSIC PLAYER
+========================================================= */
+
+
+.music-player {
+
+    position: fixed;
+
+    left: 25px;
+    bottom: 25px;
+
+    width: 250px;
+
+    padding: 12px 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(16,13,38,.75);
+
+    border:
+        1px solid
+        rgba(255,178,220,.3);
+
+    backdrop-filter:
+        blur(15px);
+
+    z-index: 160;
+}
+
+
+.music-disc {
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #ffb1d7;
+
+    background:
+        rgba(255,110,180,.1);
+
+    border:
+        1px solid
+        rgba(255,150,205,.35);
+
+    animation:
+        discSpin
+        4s linear
+        infinite;
+}
+
+
+@keyframes discSpin {
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+
+}
+
+
+.music-info {
+
+    flex: 1;
+}
+
+
+.music-info small {
+
+    font-size: 10px;
+
+    color: #ded3dd;
+}
+
+
+.music-progress {
+
+    height: 3px;
+
+    margin-top: 7px;
+
+    background:
+        #484053;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.music-progress span {
+
+    display: block;
+
+    width: 55%;
+
+    height: 100%;
+
+    background:
+        #ff83c2;
+
+    box-shadow:
+        0 0 8px
+        #ff83c2;
+
+    animation:
+        musicProgress
+        8s linear
+        infinite;
+}
+
+
+@keyframes musicProgress {
+
+    from {
+        width: 5%;
+    }
+
+    to {
+        width: 95%;
+    }
+
+}
+
+
+.music-player button {
+
+    width: 27px;
+    height: 27px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    color: #432435;
+
+    background: #ffc4df;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+
+@media(max-width: 1000px) {
+
+    .memory-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .intro-card {
+
+        width: 90%;
+
+    }
+
+    .music-player {
+
+        display: none;
+
+    }
+
+}
+
+
+@media(max-width: 700px) {
+
+    .top-nav {
+
+        left: 12px;
+        right: 12px;
+
+    }
+
+
+    .nav-center {
+
+        display: none;
+
+    }
+
+
+    .memory-hero {
+
+        min-height: 90vh;
+
+    }
+
+
+    .memory-hero h1 {
+
+        font-size: 78px;
+
+    }
+
+
+    .memory-hero p {
+
+        font-size: 21px;
+
+    }
+
+
+    .intro-card {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        padding: 35px 25px;
+
+        gap: 20px;
+
+    }
+
+
+    .intro-flower {
+
+        margin: auto;
+
+    }
+
+
+    .intro-content h2 {
+
+        font-size: 43px;
+
+    }
+
+
+    .memory-grid {
+
+        grid-template-columns: 1fr;
+
+        max-width: 430px;
+
+    }
+
+
+    .timeline::before {
+
+        left: 15px;
+
+    }
+
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+
+        width: 100%;
+
+        left: 0;
+
+        padding-left: 55px;
+
+        text-align: left;
+
+    }
+
+
+    .timeline-item:nth-child(odd)
+    .timeline-dot,
+    .timeline-item:nth-child(even)
+    .timeline-dot {
+
+        left: -2px;
+        right: auto;
+
+    }
+
+
+    .letter-card {
+
+        padding:
+            50px 25px;
+
+    }
+
+
+    .letter-card h2 {
+
+        font-size: 55px;
+
+    }
+
+
+    .bottom-nav {
+
+        width: 96%;
+
+        padding:
+            7px 2px;
+
+    }
+
+
+    .nav-item {
+
+        min-width: auto;
+
+        font-size: 12px;
+
+    }
+
+
+    .nav-item div {
+
+        font-size: 19px;
+
+    }
+
+
+    .nav-item:nth-child(n+5) {
+
+        display: none;
+
+    }
+
+
+    .moon {
+
+        width: 65px;
+        height: 65px;
+
+        top: 100px;
+
+        right: 5%;
+
+    }
+
+}
+
+
+@media(max-width: 420px) {
+
+    .back-btn {
+
+        padding:
+            9px 14px;
+
+        font-size: 12px;
+
+    }
+
+
+    .music-btn {
+
+        padding:
+            9px 14px;
+
+    }
+
+
+    .memory-hero h1 {
+
+        font-size: 65px;
+
+    }
+
+
+    .hero-small {
+
+        font-size: 22px;
+
+    }
+
+
+    .memory-hero p {
+
+        font-size: 19px;
+
+    }
+
+
+    .section-heading h2 {
+
+        font-size: 47px;
+
+    }
+
+
+    .letter-card {
+
+        border-width: 5px;
+
+    }
+
+
+    .candle-area {
+
+        transform:
+            scale(.85);
+
+    }
+
+}
